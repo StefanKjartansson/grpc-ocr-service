@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package ocr;
+
+// The Ocr service definition.
+service OcrService {
+  // Sends a ocr request
+  rpc Parse (OcrRequest) returns (OcrReply) {}
+}
+
+// The request message containing base64 encoded png
+message OcrRequest {
+  bytes content = 1;
+}
+
+// The response message containing recognised text
+message OcrReply {
+  string content = 1;
+}
